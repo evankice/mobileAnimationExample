@@ -308,6 +308,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1257034669}
   - component: {fileID: 1257034670}
+  - component: {fileID: 1257034672}
+  - component: {fileID: 1257034671}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -352,6 +354,46 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &1257034671
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257034668}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 2
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1257034672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257034668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6732f17960f894105908c939e20b2dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
 --- !u!1 &1723710272
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8099dd82c771e4d479568ed51f98e6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dino: {fileID: 1257034672}
   camera: {fileID: 519420031}
   pointer: {fileID: 2061310486}
   tapRadius: 0.5

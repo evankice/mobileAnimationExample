@@ -7,7 +7,7 @@ using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 
 public class TouchController : MonoBehaviour
 {
-    // public DinoController dino;
+    public DinoController dino;
     public Camera camera;
     public Transform pointer;
 
@@ -45,14 +45,14 @@ public class TouchController : MonoBehaviour
                 {
                     Vector2 moveDirection = (touch.screenPosition - touch.startScreenPosition) / Screen.dpi;
                     // Debug.Log(moveDirection);
-                    // if(dino != null)
-                    // {
-                    //     dino.MoveWithVector(moveDirection);
-                    //     if(touchInfos.TryGetValue(touch.touchId, out TouchInfo info))
-                    //     {
-                    //         info.isUsedForJoystick = true;
-                    //     }
-                    // }
+                    if(dino != null)
+                    {
+                        dino.MoveWithVector(moveDirection);
+                        if(touchInfos.TryGetValue(touch.touchId, out TouchInfo info))
+                        {
+                            info.isUsedForJoystick = true;
+                        }
+                    }
                 }
             }
             if(touch.phase == TouchPhase.Ended)
@@ -63,31 +63,13 @@ public class TouchController : MonoBehaviour
                 if(tapDistance < tapRadius && !info.isUsedForJoystick) // This is a tap!!
                 {
                     // Debug.Log("Tap!");
-
-                    if(camera != null)
-                    {
-                        Vector3 realWorldTapPosition = camera.ScreenToWorldPoint(new Vector3(touch.screenPosition.x, touch.screenPosition.y, camera.nearClipPlane));
-                        pointer.position = realWorldTapPosition;
-                        Collider2D thingITapped = Physics2D.OverlapCircle(new Vector2(realWorldTapPosition.x,realWorldTapPosition.y), 1);
-                        if(thingITapped != null)
-                        {
-
-                        }
-                        else
-                        {
-                            // if(dino != null)
-                            // {
-                            //     dino.Jump();
-                            // }
-                        }
-                    }
                 }
                 else
                 {
-                    // if(dino != null)
-                    // {
-                    //     dino.MoveWithVector(Vector2.zero);
-                    // }
+                    if(dino != null)
+                    {
+                        dino.MoveWithVector(Vector2.zero);
+                    }
                 }
             }
         }

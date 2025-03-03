@@ -63,6 +63,10 @@ public class TouchController : MonoBehaviour
                 if(tapDistance < tapRadius && !info.isUsedForJoystick) // This is a tap!!
                 {
                     // Debug.Log("Tap!");
+                    if(dino != null)
+                    {
+                        dino.Attack();
+                    }
                 }
                 else
                 {
